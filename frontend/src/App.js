@@ -6,6 +6,7 @@ import Header from "./Components/Header/Header.js";
 import Nav from "./Components/Nav/Nav.js";
 import Contact from "./Components/Contact/Contact.js";
 import About from "./Components/About/About.js";
+import Posts from "./Components/Posts/Posts.js";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Header />} />
         <Route path="/About" element={<About />} />
         <Route path="/Contact" element={<Contact />} />
+        <Route path="/Posts" element={<Posts />} />
       </Routes>
     
     </BrowserRouter>
