@@ -4,7 +4,7 @@ import "./Nav.css";
 import { AiOutlineContacts } from "react-icons/ai";
 import { AiOutlineUser } from "react-icons/ai"; 
 import { BiHomeAlt } from "react-icons/bi"; 
-
+// import Posts from "../Posts/Posts";
 
 
 const Nav = () => {
@@ -15,6 +15,7 @@ const Nav = () => {
     <NavLink to="/"><BiHomeAlt/></NavLink>
     <NavLink to="/About"><AiOutlineUser/></NavLink>
     <NavLink to="/Contact"><AiOutlineContacts/></NavLink>
+    <NavLink to="/Posts"><AiOutlineContacts/></NavLink>
     </nav>
     </div>
   );

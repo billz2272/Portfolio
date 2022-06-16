@@ -1,12 +1,15 @@
 header {
   height: 100vh;
-  padding-top: 6rem;
+  padding-top: 3rem;
   overflow: hidden;
+ 
+  
 }
 .header__container {
   text-align: center;
   height: 100%;
   position: relative;
+  
 }
 
 /* ====================CTA===================================== */
