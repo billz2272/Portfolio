@@ -45,8 +45,8 @@ header {
 .Bill {
   background: radial-gradient(var(--color-primary), transparent);
   /* background: var(--color-primary); */
-  width: 25rem;
-  height: 30rem;
+  width: 150px;
+  height: 200px;
   position: relative;
   left: calc(50% - 12.5rem);
   margin-top: 3rem;
@@ -54,10 +54,24 @@ header {
   overflow: hidden;
   /* z-index:-1; */
 }
+.blink {
+  animation: blinker 0.1s step-start infinite;
+  color: red;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
 
+p{
+  color: red;
+  font-weight: bolder;
+  font-size: 20px;
+}
 .img-bill {
   border-radius: 50%;
-  margin-top: 1.5rem;
+  /* margin-top: 1.5rem; */
 }
 
 

@@ -1,4 +1,4 @@
-const asyncHandler = require('asyncHandler');
+const asyncHandler = require('express-async-handler');
 
 const Blog = require('../models/Blog');
 
@@ -36,10 +36,10 @@ const deleteBlog = asyncHandler(async (req, res) => {
 
 const createBlog = asyncHandler(async (req, res) => {
     const blog = new Blog({
-        title: 'Sample title',
-        image: 'Sample Image',
-        content: 'Sample Content',
-        description: 'Sample Description',
+        title: req.body.title,
+        image: req.body.image,
+        content: req.body.content,
+        description: req.body.description,
     })
     const createdBlog = await blog.save()
     res.status(201).json(createdBlog)

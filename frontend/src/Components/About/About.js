@@ -1,6 +1,6 @@
 import React from "react";
 import "./About.css";
-import Bill from "../../assets/Bill-3.jpg";
+import Bill from "../../assets/vendet.jpg";
 // import Chastity from '../../assets/Chastity.jpg';
 
 import { CgBoy } from "react-icons/cg";
