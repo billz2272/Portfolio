@@ -2,7 +2,6 @@ import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import "./index.css";
 import Header from "./Components/Header/Header.js";
-// import Footer from './Components/Footer/Footer.js';
 import Nav from "./Components/Nav/Nav.js";
 import Contact from "./Components/Contact/Contact.js";
 import About from "./Components/About/About.js";
