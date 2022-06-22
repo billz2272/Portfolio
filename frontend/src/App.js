@@ -1,58 +1,29 @@
 import React from "react";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./index.css";
 import Header from "./Components/Header/Header.js";
-import Nav from "./Components/Nav/Nav.js";
 import Contact from "./Components/Contact/Contact.js";
 import About from "./Components/About/About.js";
+import Posts from "./Components/Posts/Posts.js";
+import Layout from "./Components/Layout/layout";
+import Login from "./screens/LoginScreen/loginScreen";
+// import AdminScreen from "./screens/AdminScreen";
 
 
 function App() {
   return (
-    <BrowserRouter>
-      <Nav />
-      <Routes>
+    <Routes>
+      <Route path={"/login"} element={<Login />} />
+      {/* <Route path={"/admin"} element={<AdminScreen />} /> */}
+      <Route path={"/"} element={<Layout />}>
         <Route path="/" element={<Header />} />
         <Route path="/About" element={<About />} />
         <Route path="/Contact" element={<Contact />} />
-      </Routes>
+        <Route path="/Posts" element={<Posts />} />
+     </Route>
     
-    </BrowserRouter>
+    </Routes>
   );
 }
 
 export default App;
-
-// export default function App() {
-//   return (
-//     <div className= "App">
-//       <h2>hello</h2>
-//       <BrowserRouter>
-//         <Router>
-//           <Route exact path="/About" component={About} />
-//           <Route exact path="/" component={Header} />
-//         </Router>
-//       </BrowserRouter>
-//       <Nav />
-
-//     </div>
-//   );
-// }
-
-// const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(<App />);
-
-// const App = () => {
-//   return (
-//     <>
-//     <Header />
-//     <About />
-//     <Nav />
-//     <Contact />
-//     {/* <Footer />  */}
-// </>
-
-//   )
-// }
-
-// export default App;
