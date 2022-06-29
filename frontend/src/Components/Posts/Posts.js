@@ -8,21 +8,25 @@ import {
   getBlogsFetch
 } from "../../redux/features/Slices/blogSlice";
 import { BlogsContainer, NewBlogContainer, Wrapper } from "./styles";
+import { useGetAllBlogsApiQuery } from "../../redux/features/Api/getAllBlogsApi";
 
 const Posts = () => {
   const unique_id = uuid();
   const dispatch = useDispatch();
-  const blog = useSelector(getAllBlogs);
-  console.log("blog", blog);
   const [loading, setloading] = useState(false);
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
   const [content, setContent] = useState("");
-
-  useEffect(() => {
-    dispatch(getBlogsFetch());
-  }, [dispatch]);
+  const { data, error, isLoading, isFetching, isSuccess } = useGetAllBlogsApiQuery()
+  console.log("data", data);
+  console.log("error", error);
+  console.log("isLoading", isLoading);
+  console.log("isFetching", isFetching);
+  console.log("isSuccess", isSuccess);
+  // useEffect(() => {
+  //   dispatch(getBlogsFetch());
+  // }, [dispatch]);
   const addBlogsToDataBase = async (e) => {
     const addBlogsObject = {
       id: unique_id,
@@ -34,6 +38,11 @@ const Posts = () => {
     try {
       setloading(true);
       dispatch(createNewBlogPost(addBlogsObject));
+      // setloading(false);
+      // setTitle('')
+      // setImage('')
+      // setDescription('')
+      // setContent('')
     } catch (error) {
       setloading(false);
       console.log(error);
@@ -47,17 +56,25 @@ const Posts = () => {
     <Wrapper>
       {loading && <Spinner />}
       <BlogsContainer>
-        {blog?.blogs?.map(({ _id, title, image,description, content }) => {
-          return (
-            <div key={_id}>
+        <h1>BlogPosts</h1>
+        {isLoading && <Spinner />}
+        {isFetching && <h2>...Fetching Data</h2>}
+        {error && <h2>Something went wrong</h2>}
+        {isSuccess && (
+          <div>
+            {data?.blogs?.map(({ _id, title, image,description, content }) => {
+              return (
+                <div key={_id}>
               <p>{title}</p>
               <img src={image} alt={image} />
               <p>{description}</p>
               <p>{content}</p>
               <br />
             </div>
-          );
-        })}
+              )
+            })}
+          </div>
+        )}
       </BlogsContainer>
       <NewBlogContainer>
         <form onSubmit={addBlogsToDataBase} className="form-group">
@@ -113,6 +130,18 @@ const Posts = () => {
 };
 
 export default Posts;
+
+//  {data?.map(({ _id, title, image,description, content }) => {
+//           return (
+//             <div key={_id}>
+//               <p>{title}</p>
+//               <img src={image} alt={image} />
+//               <p>{description}</p>
+//               <p>{content}</p>
+//               <br />
+//             </div>
+//           );
+//         })}
 // import React from "react";
 // import "./Posts.css";
 // // import Posts from "../Posts/Posts";
